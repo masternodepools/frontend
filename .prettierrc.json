@@ -1,0 +1,6 @@
+{
+  "jsxSingleQuote": true,
+  "jsxBracketSameLine": true,
+  "singleQuote": true,
+  "stylelintIntegration": true
+}
