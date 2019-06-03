@@ -1,12 +1,30 @@
 import React from 'react';
-import { Route, Switch } from 'react-router'; // react-router v4/v5
+import { Route, Switch } from 'react-router';
+import ProtectedRoute from './utils/ProtectedRoute';
+import routesConstants from './utils/routes.contants';
+import { Home, Login, Profile, Wallet } from './views';
 
 function App() {
   return (
     <>
       <Switch>
-        <Route exact path='/' render={() => <div>Match</div>} />
-        <Route render={() => <div>Miss</div>} />
+        <ProtectedRoute exact path={routesConstants.HOME} component={Home} />
+        <ProtectedRoute
+          exact
+          path={routesConstants.WALLET}
+          component={Wallet}
+        />
+        <ProtectedRoute
+          exact
+          path={routesConstants.PROFILE}
+          component={Profile}
+        />
+        <Route
+          exact
+          path={routesConstants.LOGIN}
+          render={props => <Login {...props} />}
+        />
+        <Route render={() => <div>Missing</div>} />
       </Switch>
     </>
   );
