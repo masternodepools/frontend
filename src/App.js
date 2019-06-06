@@ -2,11 +2,12 @@ import React from 'react';
 import { Route, Switch } from 'react-router';
 import ProtectedRoute from './utils/ProtectedRoute';
 import routesConstants from './utils/routes.contants';
-import { Home, Login, Profile, Wallet } from './views';
+import { Home, Login, Profile, Wallet, Header } from './views';
 
 function App() {
   return (
     <>
+      <Header />
       <Switch>
         <ProtectedRoute exact path={routesConstants.HOME} component={Home} />
         <ProtectedRoute
